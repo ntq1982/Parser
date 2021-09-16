@@ -6,11 +6,11 @@
 
    Copyright (C) 2021 Quang Nguyen. All rights reserved
    Created on Sep 16, 2021 at Osaka University
-   Last modified: Sep 16, 2021 17:35 JST
+   Last modified: Sep 16, 2021 23:04 JST
 
 '''
 
-import math, yaml
+import yaml
 
 with open('thermal_displacements.yaml') as file:
 	data = yaml.load(file, Loader=yaml.FullLoader)
@@ -25,14 +25,14 @@ for x in data:
 print("{:>25s} {}".format('Number of temperatures:', ntemp))
 
 for i in range(natom):
-	print('{:23s} {} {:1s}'.format('\n  Displacements of atom', i + 1, ':'))
+	print('{:31s} {} {:1s}'.format('\n  Thermal displacements of atom', i + 1, ':'))
 	print("{:>16s} {:>16s} {:>16s} {:>16s} {:>16s}".format('Temperature[K]',
-		'X-Displ[Å^2]', 'Y-Displ[Å^2]', 'Z-Displ[Å^2]', 'Tot_Displ[Å^2]') )
+		'MSD_X[Å^2]', 'MSD_Y[Å^2]', 'MSD_Z[Å^2]', 'MSD_Tot[Å^2]') )
 	for j in range(ntemp):
 		temp = data['thermal_displacements'][j]['temperature']
-		displ = data['thermal_displacements'][j]['displacements'][i]
-		total = math.sqrt(displ[0]**2 + displ[1]**2 + displ[2]**2)
+		msd_xyz = data['thermal_displacements'][j]['displacements'][i]
+		msd_tot = msd_xyz[0] + msd_xyz[1] + msd_xyz[2]
 		print("{:1s} {:14.3f} {:16.7f} {:16.7f} {:16.7f} {:16.7f}".
-			format(' ', temp, *displ, total))
+			format(' ', temp, *msd_xyz, msd_tot))
 
 print("\n  Parsed successfully!")
