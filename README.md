@@ -1,4 +1,5 @@
-# parser
-Some tools for parsing data (Phonopy, VASP, LAMMPS,...)
+# Data parsers
 
-msd_parser.py    Parsing data from PHONOPY's thermal_displacements.yaml
+## Some tools for parsing data (VASP, LAMMPS, Phonopy,...)
+
+  **msd_parser.py** Parsing data from PHONOPY's thermal_displacements.yaml
