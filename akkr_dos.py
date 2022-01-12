@@ -65,7 +65,8 @@ component = 0
 with open(options.file, mode='r') as infile:
 	for line in infile:
 		if str_magtyp in line:
-			value = line.strip(' \n').split('=')[1]
+# 			value = line.strip(' \n').split('=')[1]               # Old version
+			value = (line.strip(' \n').split()[0]).split('=')[1]  # Cnd version
 			if value == 'nmag':
 				ispin = 1
 			else:
