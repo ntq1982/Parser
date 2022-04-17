@@ -9,6 +9,4 @@
 | **msd_parser.py**	| Parsing data from Phonopy's thermal_displacements.yaml	|
 | **thm_parser.py**	| Parsing data from Phonopy's thermal_properties.yaml	|
 
-
-
 © 2021 Quang Nguyen
